@@ -8,24 +8,27 @@ export default function AuthScreen({ setState }) {
   const [password, setPassword] = useState("");
   const [text, setText] = useState("");
 
-    function sendMessage(msg) {
-        setText(msg)
-        setTimeout(() => {
-            setText("");
-          }, 4000);
-    }
-
+  function sendMessage(msg) {
+    setText(msg);
+    setTimeout(() => {
+      setText("");
+    }, 4000);
+  }
 
   async function login() {
-    const req = await axios.post("http://localhost:7000/api/auth/login", {
-      email,
-      password,
-    }, {validateStatus: () => true});
+    const req = await axios.post(
+      "http://localhost:7000/api/auth/login",
+      {
+        email,
+        password,
+      },
+      { validateStatus: () => true }
+    );
     if (req.status !== 201) {
-        return sendMessage('Даній не вірні')
+      return sendMessage("Даній не вірні");
     }
-    localStorage.setItem('token', req.data.token)
-    setState(true)
+    localStorage.setItem("token", req.data.token);
+    setState(true);
   }
 
   return (
@@ -38,14 +41,26 @@ export default function AuthScreen({ setState }) {
         <Input setState={setPassword} type="password" placeholder="Пароль" />
         <br />
         <div className="auth-btn">
-          <button className="btn" onClick={() => {login()}}>Увійти</button>
-          <button className="btn" onClick={() => {sendMessage("Ще не працює :)")}}>Рейстрація</button>
+          <button
+            className="btn"
+            onClick={() => {
+              login();
+            }}
+          >
+            Увійти
+          </button>
+          <button
+            className="btn"
+            onClick={() => {
+              sendMessage("Ще не працює :)");
+            }}
+          >
+            Реєстрація
+          </button>
         </div>
         <br />
         <br />
       </div>
-
-     
     </div>
   );
 }

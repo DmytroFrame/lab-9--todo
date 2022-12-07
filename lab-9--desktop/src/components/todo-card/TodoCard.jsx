@@ -2,13 +2,14 @@ import React from "react";
 import "./TodoCard.scss";
 import axios from "axios";
 
-export default function TodoCard({ todo, setState }) {
+export default function TodoCard({ todo, setState, fetchTodos }) {
   async function deleteTodo() {
     await axios.delete(`http://localhost:7000/api/todos/${todo.id}`, {
       headers: { authorization: "Bearer " + localStorage.getItem("token") },
       validateStatus: () => true,
     });
-    setState(false)
+    setState(false);
+    fetchTodos()
   }
 
   return (
@@ -18,7 +19,6 @@ export default function TodoCard({ todo, setState }) {
       <button
         onClick={() => {
           deleteTodo();
-          
         }}
       >
         Видалити

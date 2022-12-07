@@ -1,30 +1,12 @@
 import React, { useState, useEffect } from "react";
-import TodoCard from "../components/todo-card/TodoCard";
+
 import TodoMenu from "../components/todo-menu/TodoMenu";
 import TodoNavbar from "../components/todo-navbar/TodoNavbar";
 import "./TodoScreen.scss";
-import axios from "axios";
+import Todos from "../components/Todos";
 
 export default function TodoScreen({ authState, keyState }) {
   const [isOpenMenu, setOpenMenu] = useState(false);
-  const [todos, setTodos] = useState([]);
-
-  async function fetchTodos() {
-    const req = await axios.get("http://localhost:7000/api/todos", {
-      headers: { authorization: "Bearer " + localStorage.getItem("token") },
-      validateStatus: () => true,
-    });
-    if (req.status !== 200) {
-      localStorage.setItem("token", "");
-      return;
-    }
-    setTodos(req.data);
-  }
-  useEffect(() => {
-    setInterval(() => {
-      fetchTodos();
-    }, 1000);
-  });
 
   if (isOpenMenu)
     return (
@@ -52,9 +34,7 @@ export default function TodoScreen({ authState, keyState }) {
         }}
       />
       <div className="todos">
-        {todos.map((todo) => (
-          <TodoCard todo={todo} key={todo.id} setState={setOpenMenu} />
-        ))}
+        <Todos setOpenMenu={setOpenMenu} />
       </div>
     </div>
   );
