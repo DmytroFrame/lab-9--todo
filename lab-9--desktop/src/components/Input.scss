@@ -1,0 +1,18 @@
+.custom-input {
+    border: 2px solid rgb(165, 165, 165);
+    border-radius: 0;
+    width: 220px;
+    height: 28px;
+  
+    input {
+      text-align: center;
+      border: 0;
+      background-color: rgb(227, 227, 227);
+      width: 98%;
+      font-size: 18px;
+      font-weight: 300;
+      border: 0;
+      outline: 0;
+      color: rgb(71, 71, 71);
+    }
+}

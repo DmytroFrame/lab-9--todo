@@ -1,0 +1,59 @@
+.auth-container {
+    color: black;
+    background-color: rgb(127, 166, 184);
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .auth-block {
+        border-radius: 10px;
+        display: flex;
+        width: 300px;
+        // height: 450px;
+        flex-direction: column;
+        background-color: rgb(227, 227, 227);
+        align-items: center;
+
+        h1 {
+            font-weight: 300;
+            font-size: 42pt;
+        }
+        
+        h4 {
+            margin-top: -35px;
+            margin-bottom: 5px;
+            font-size: 22px;
+            color: rgb(215, 103, 103);
+        }
+
+        .login-input {
+            margin-bottom: 20px;
+        }
+
+        .auth-btn {
+            width: 220px;
+            display: flex;
+            justify-content: space-around;
+        
+
+            .btn  {
+                padding: 7px 10px;
+                font-size: 16px;
+                // margin-left: 20px;
+                transition: 0.5s;
+                border-radius: 3px;
+                border: 1px solid rgb(165, 165, 165);
+                background-color: rgb(222, 222, 222);
+            
+            
+                &:hover {
+                    background-color: rgb(239, 239, 239);
+                    border-radius: 5px;
+                  }
+            }  
+        }
+    }
+}
+ 

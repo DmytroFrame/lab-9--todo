@@ -1,0 +1,17 @@
+.todo-screen-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.todos {
+    display: flex;
+    flex-wrap: wrap;
+    // align-items: flex-end;
+    width: 100%;
+    // padding-left: 20px;
+    // padding-top: 20px;
+    justify-content: space-around;
+    align-items: flex-start;
+    // justify-content: space-between;
+
+}
